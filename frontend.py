@@ -1,5 +1,11 @@
 # frontend.py
-import PySimpleGUI as sg      
+import PySimpleGUI as sg
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+from bs4 import BeautifulSoup
+from selenium.webdriver.common.by import By
+import time
+
 
 layout = [[sg.Text('Input the job link you would like to autofill')],      
                  [sg.InputText()],      
@@ -10,6 +16,29 @@ window = sg.Window('JobChamp', layout)
 event, values = window.read()    
 window.close()
 
-text_input = values[0]    
+text_input = values[0]
 
-sg.popup('You entered', text_input)
+
+
+def parse_content(html_doc):
+    soup = BeautifulSoup(html_doc, 'html.parser')
+
+driver = webdriver.Chrome('/Users/nathanzhu/Documents/chromedriver')
+driver.get(text_input)
+tester = {"last_name" : "Zhu", "first_name": "Nathan", "phone" : "7706700310", "email" : "nathanzhu9@gmail.com"
+          }
+
+
+for bruh, data in tester.items():
+    try:
+        temp = driver.find_element_by_id(bruh)
+        temp.send_keys(data)
+    except:
+        temp = driver.find_element_by_name(bruh)
+        temp.send_keys(data)
+        time.sleep(1)
+    finally:
+        time.sleep(1)
+        continue
+
+sg.popup('All data has been successfully entered')
