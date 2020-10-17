@@ -8,8 +8,8 @@ import time
 def parse_content(html_doc):
     soup = BeautifulSoup(html_doc, 'html.parser')
 
-driver = webdriver.Chrome('/Users/nathanzhu/Documents/chromedriver')
-driver.get("https://www.dropbox.com/jobs/listing/1073977/apply")
+driver = webdriver.Chrome('/Users/Stephanie/Documents/chromedriver')
+driver.get("https://careers.activision.com/apply/1/1?jobSeqNo=ACPUUSR003070EXTERNAL")
 tester = {"last_name" : "Zhu", "first_name": "Nathan", "phone" : "7706700310", "email" : "nathanzhu9@gmail.com"
           }
 
