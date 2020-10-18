@@ -25,7 +25,7 @@ def parse_content(html_doc):
 
 driver = webdriver.Chrome('/Users/nathanzhu/Documents/chromedriver')
 driver.get(text_input)
-tester = {"last_name" : "Zhu", "first_name": "Nathan", "phone" : "7706700310", "email" : "nathanzhu9@gmail.com"
+tester = {"last_name" : "HELP", "first_name": "PLEASE", "phone" : "1111111111", "email" : "imdeadinside@gmail.com"
           }
 
 
